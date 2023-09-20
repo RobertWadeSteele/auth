@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+</head>
+<body>
+    <main class="container">
+        <article>
+            <h1 style="text-align: center;">Login</h1>
+            <form hx-post="/api/auth" hx-swap="innerhtml" hx-target="find #login-status" hx-on::before-swap="event.detail.shouldSwap = true;">
+                <label>
+                    Username:
+                    <input type="text" name="username">
+                </label>
+                <label>
+                    Password:
+                    <input type="text" name="password">
+                </label>
+                <div id="login-status" style="text-align: center; color: red;"></div>
+                <button type="submit">Login</button>
+            </form>
+        </article>
+    </main>
+</body>
+</html>
